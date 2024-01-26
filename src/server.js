@@ -62,6 +62,7 @@ io.on("connection", (socket) => {
   socket.on("stop typing", (room) => socket.to(room).emit("stop typing"));
 
   socket.on("new message", async (newMessageReceived) => {
+    console.log("new messge ........", newMessageReceived);
     try {
       io.to(newMessageReceived.room).emit(
         "message received",
